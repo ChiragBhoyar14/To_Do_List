@@ -1,0 +1,23 @@
+<app-header/>
+
+<main>
+    <ul id="users">
+        <li>
+            <app-user [user]="dummy_user[0]"/>
+        </li>
+         <li>
+            <app-user [user]="dummy_user[1]"/>
+        </li> <li>
+            <app-user [user]="dummy_user[2]"/>
+        </li> <li>
+            <app-user [user]="dummy_user[3]"/>
+        </li>
+         <li>
+            <app-user [user]="dummy_user[4]"/>
+        </li>
+    </ul>
+
+    <div>
+        <app-task  [name]="getselectedUser()?.name"></app-task>
+    </div>
+</main>
