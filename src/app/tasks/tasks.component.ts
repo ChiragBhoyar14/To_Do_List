@@ -1,14 +1,7 @@
 import { Component,Input, EventEmitter } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import{dummyTasks} from '../dummy-tasks';
-
-interface Task {
-  id:string,
-  userId: string,
-    title: string,
-    summary :string,
-    dueDate:string
-}
+import { Task } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -17,6 +10,7 @@ interface Task {
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
+
 export class TasksComponent {
 
   @Input({required: true}) name?: string;
@@ -27,6 +21,12 @@ export class TasksComponent {
   get UserTasks(){
 
     return this.Tasks.filter(task => task.userId===this.userId);
+  
+  }
+
+  OnCompleted(id: string) {
+
+  this.Tasks= this.Tasks.filter(task => task.id !== id );
   
   }
 }
