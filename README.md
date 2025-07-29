@@ -1,27 +1,81 @@
-# Essentials
+# Angular Essentials Learning Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+This project is built with [Angular](https://angular.io/) and is intended solely for learning and practicing core Angular concepts.
 
-## Development server
+## Tech Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Framework:** Angular
+- **Language:** TypeScript
+- **Styling:** CSS
+- **Build Tooling:** Angular CLI
+- **Package Management:** npm
 
-## Code scaffolding
+## Purpose
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This repository is for **learning and experimentation** with Angular. It is not intended for production use.
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Practice with Angular components, data binding, and event handling
+- Simple user and task management examples
+- No backend integration
 
-## Running unit tests
+## Testing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+There are currently **no test cases** included in this project. This repository is intended for learning and experimentation with Angular, so automated tests have not been implemented.
 
-## Running end-to-end tests
+## Getting Started
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Prerequisites
 
-## Further help
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [Angular CLI](https://angular.io/cli)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Installation
+
+1. Clone the repository:
+    ```sh
+    git clone <repository-url>
+    cd 01-starting-project
+    ```
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+
+### Running the Development Server
+
+Start the dev server:
+```sh
+ng serve
+```
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any source files.
+
+### Code Scaffolding
+
+Generate a new component:
+```sh
+ng generate component component-name
+```
+You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+### Build
+
+Build the project:
+```sh
+ng build
+```
+The build artifacts will be stored in the `dist/` directory.
+
+## Further Help
+
+To get more help on the Angular CLI, use:
+```sh
+ng help
+```
+Or check out the [Angular CLI Documentation](https://angular.io/cli).
+
+---
+
+**Note:**  
+This project is for educational purposes only and does not include automated tests or production-ready features.
