@@ -11,7 +11,7 @@
 
     <div>
         @if(selectedUser){
-            <app-task [name]="selectedUser.name"/>
+            <app-tasks [name]="selectedUser.name" [userId]="selectedUser.id"/>
         }
         @else {
             <p>Please select a user to see their tasks.</p>
