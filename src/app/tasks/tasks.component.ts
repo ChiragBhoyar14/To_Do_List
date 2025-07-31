@@ -1,9 +1,10 @@
-import { Component,Input, EventEmitter } from '@angular/core';
+import { Component,Input, inject} from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import{dummyTasks} from '../dummy-tasks';
-import { Task } from './task/task.model';
+import{TasksService} from './tasks.service';
 import { NewTaskComponent } from './new-task/new-task.component';
-import{ NewTask } from './task/task.model';
+import{ NewTask, Task } from './task/task.model';
+
 
 @Component({
   selector: 'app-tasks',
@@ -13,22 +14,25 @@ import{ NewTask } from './task/task.model';
   styleUrl: './tasks.component.css'
 })
 
+
 export class TasksComponent {
 
-  @Input({required: true}) name?: string;
-  @Input({required: true}) userId?: string;
+  @Input({required: true}) name!: string;
+  @Input({required: true}) userId!: string;
   isAddNewTask = false;
+  
+   Tasks: Task[] = dummyTasks;
 
-  Tasks: Task[] = dummyTasks;
+// constructor(private TaskService:TasksService){}   this is the old way of injecting services in Angular
+// Now we use inject function to inject services in Angular components
+private TaskService = inject(TasksService);
 
   get UserTasks(){
-
-    return this.Tasks.filter(task => task.userId===this.userId);
-  
+     return this.TaskService.getUserTasks(this.userId!);
   }
 
   OnCompleted(id: string) {
-  this.Tasks= this.Tasks.filter(task => task.id !== id );
+    return this.TaskService.removeTask(id);
   }
 
 OnStartAddTask() {
@@ -41,15 +45,7 @@ OnStartAddTask() {
 
   OnAddTask(NewTask: NewTask)
   {
-        this.Tasks.unshift({
-        id:Math.random().toString(),
-        userId: this.userId!,
-        title:NewTask.title,
-        summary: NewTask.summary,
-        dueDate: NewTask.dueDate
-
-      })
-
+    this.TaskService.addTask(NewTask, this.userId!);
       this.isAddNewTask = false;
   }
 }
