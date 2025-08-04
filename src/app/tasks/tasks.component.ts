@@ -31,10 +31,6 @@ private TaskService = inject(TasksService);
      return this.TaskService.getUserTasks(this.userId!);
   }
 
-  OnCompleted(id: string) {
-    return this.TaskService.removeTask(id);
-  }
-
 OnStartAddTask() {
      this.isAddNewTask = true; 
   }
