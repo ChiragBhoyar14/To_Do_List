@@ -8,6 +8,14 @@ export class TasksService {
 
  Tasks: Task[] = dummyTasks;
 
+constructor(){
+
+  if(localStorage.getItem('Tasks')) {
+    this.Tasks = JSON.parse(localStorage.getItem('Tasks')!);
+  }
+}
+
+
 getUserTasks(userId: string) {
   return this.Tasks.filter(task => task.userId===userId);
 }
@@ -21,10 +29,16 @@ addTask(NewTask: NewTask, userId: string) {
         dueDate: NewTask.dueDate
 
       })
-
+      this.saveTasks();
   }
 
 removeTask(id: string) {
     this.Tasks= this.Tasks.filter(task => task.id !== id );
+    this.saveTasks();
     }
+
+saveTasks(){
+  localStorage.setItem('Tasks',JSON.stringify(this.Tasks));
+}
+
 }
