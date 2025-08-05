@@ -1,5 +1,4 @@
 import { Component,Input,Output, EventEmitter} from '@angular/core';
-import { CardComponent } from "../shared/card/card.component";
 
 type  User =  {
   id: string;
@@ -9,8 +8,6 @@ type  User =  {
 
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
